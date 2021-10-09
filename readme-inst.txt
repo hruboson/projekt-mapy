@@ -2,7 +2,7 @@
 NÁVOD NA INSTALACI
 ----------------------------------------------------------------------------
 Stažení souborů:
-    Stáhněte si zazipovanou složku „codeigniterdb.zip“.
+    Stáhněte si zazipovanou složku z githubu
     Celý archiv extrahujte do složky vašeho webového serveru případně složky, kde se nachází vaše localhost projekty.
 ----------------------------------------------------------------------------
 Nastavení:
@@ -13,10 +13,13 @@ Nastavení:
     $config['base_url'] = 'https://localhost/vas-nazev-slozky-s-projektem';
 ----------------------------------------------------------------------------
 Nastavení databáze:
-    Na adrese localhost/phpMyAdmin vytvořte databázi s názvem 'news'
+    Na adrese localhost/phpMyAdmin vytvořte databázi s názvem 'skoly'
         Pokud si vytvoříte databázi s jiným názvem, budete muset změnit hodnotu proměnné v souboru „...\applications\config\database.php“ na řádku 81 'database' = 'nazev_vasi_databaze'
     V horním menu klikněte na záložku 'import'
     Klikněte na tlačítko 'Procházet'
-    Vyberte soubor news.sql a klikněte na tlačítko 'Proveď' v levém dolním rohu
+    Vyberte soubor skoly.sql a klikněte na tlačítko 'Proveď' v levém dolním rohu
     V souboru „...\applications\config\database.php“ změnte hodnoty proměnných (pokud je nutné) na řádcích 77 - 96
+****************************************************************************
+UPOZORNĚNÍ
+    Pokud je třeba, přejmenujte v databázi v tabulce skola, sloupce geo-lat a geo-long na geo_lat a geo_long
 ****************************************************************************

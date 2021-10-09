@@ -12,7 +12,9 @@ class Home extends CI_Controller{
 		if ( !file_exists('application/views/home.php') ) {
             show_404();
 		}
-		
+		$this->load->model('Db_model');
+
+		$data["skoly"] = $this->Db_model->get_skoly();
 		$data["title"] = "Domů";
 		$data["db"] = "";
 		

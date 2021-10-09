@@ -16,6 +16,12 @@
             document.getElementsByTagName('head')[0].appendChild(css);
         })();
     </script> <!-- načte font awesome před obsahem stránky => není vidět že se načítají pomalu -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <!--script src="<?php echo base_url('assets/js/map.js'); ?>" type="text/javascript"></script-->
+
+
 </head>
 
 <body>
@@ -43,9 +49,10 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <?php if ($this->session->userdata('logged_in')) { ?>
                                     <!-- pokud je uživatel přihlášený přidají se tlačítka administrátora -->
-                                    <a class="dropdown-item" href="<?php echo base_url(''); ?>"><button type="button" class="btn btn-lg btn-success" style="margin-right: 10px;">Administrace</button></a>
+                                    <a class="dropdown-item" href="<?php echo base_url('auth'); ?>"><button type="button" class="btn btn-lg btn-success" style="margin-right: 10px;">Administrace</button></a>
+                                    <a class="dropdown-item" href="<?php echo base_url('auth/create_user'); ?>"><button type="button" class="btn btn-lg btn-success" style="margin-right: 10px;">Vytvořit uživatele</button></a>
+                                    <a class="dropdown-item" href="<?php echo base_url('auth/add_school'); ?>"><button type="button" class="btn btn-lg btn-success" style="margin-right: 10px;">Přidat školu</button></a>
                                 <?php } else { ?>
-                                    <a class="dropdown-item" href="<?php echo base_url('auth/create_user'); ?>"><button type="button" class="btn btn-lg btn-success" style="margin-right: 10px;">Registrace</button></a>
                                     <a class="dropdown-item" href="<?php echo base_url('auth/login'); ?>"><button type="button" class="btn btn-lg btn-success" style="margin-right: 10px;">Přihlásit se</button></a>
                                 <?php } ?>
                                 <?php if ($this->session->userdata('logged_in')) { ?>
