@@ -41,33 +41,20 @@
 		</div>
 	</div>
 	<script>
-		function filterTable() {
-			// Declare variables
-			var input, filter, table, tr, td, i, txtValue;
-			input = document.getElementById("filterInput");
-			filter = input.value;
-			table = document.getElementById("tableSkoly");
-			tr = table.getElementsByTagName("tr");
-
-			// Loop through all table rows, and hide those who don't match the search query
-			for (i = 0; i < tr.length; i++) {
-				td = tr[i].getElementsByTagName("td")[0];
-				if (td) {
-					txtValue = td.textContent || td.innerText;
-					if (txtValue.toUpperCase().indexOf(filter) > -1) {
-						tr[i].style.display = "";
-					} else {
-						tr[i].style.display = "none";
-					}
-				}
-			}
-		}
+		$(document).ready(function() {
+			$("#filterInput").on("keyup", function() {
+				var value = $(this).val().toLowerCase();
+				$("#tableSkoly tr").filter(function() {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
+		});
 	</script>
 	<div class="row">
 		<div class="col-8">
 		</div>
 		<div class="col-4 input-group">
-			<input class="form-control" type="text" id="filterInput" onkeyup="filterTable()" placeholder="Vyhledat školu">
+			<input class="form-control" type="text" id="filterInput" placeholder="Vyhledat školu">
 		</div>
 	</div>
 	<div class="row">

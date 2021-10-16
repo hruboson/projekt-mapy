@@ -22,17 +22,39 @@ class Home extends CI_Controller{
 		$this->load->view('home');
 	}
 
-	public function table(){
+	public function add_school(){
 
-		if ( !file_exists('application/views/table.php') ) {
-            show_404();
+		if (!file_exists('application/views/add_school.php')) {
+			show_404();
 		}
-		
-		$data["title"] = "Tabulka škol";
-		$data["table"] = "";
-		
-		$this->load->view('header', $data);
-		$this->load->view('table');
+
+		$this->load->model('Db_model');
+
+		$data["title"] = "Přidat školu";
+		$data["mesta"] = $this->Db_model->get_mesta();
+
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->load->library('session');
+
+		$this->form_validation->set_rules('nazev', 'Název', 'required');
+		$this->form_validation->set_rules('mesto', 'Město', 'required');
+
+		if ($this->form_validation->run() === FALSE) {
+			$this->load->view('header', $data);
+			$this->load->view('add_school');
+		} else {
+			$nazev = $this->input->post('nazev');
+			$geo_lat = $this->input->post('geo_lat');
+			$geo_long = $this->input->post('geo_long');
+			$mesto = $this->input->post('mesto');
+
+			$this->Db_model->add_skola($nazev, $geo_lat, $geo_long, $mesto);
+			$this->session->set_flashdata('success', 'Škola byla úspěšně přidána');
+
+			$this->load->view('header', $data);
+			$this->load->view('add_school');
+		}
 
 	}
 

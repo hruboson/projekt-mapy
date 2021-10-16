@@ -4,7 +4,7 @@
 <head>
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css') ?>">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> <!-- jquery online -->
+    <script src="<?php echo base_url('assets/js/jquery_3.6.0.min.js')?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> <!-- popper js -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> <!-- bootstrap js -->
     <script type="text/javascript">
@@ -51,7 +51,7 @@
                                     <!-- pokud je uživatel přihlášený přidají se tlačítka administrátora -->
                                     <a class="dropdown-item" href="<?php echo base_url('auth'); ?>"><button type="button" class="btn btn-lg btn-success" style="margin-right: 10px;">Administrace</button></a>
                                     <a class="dropdown-item" href="<?php echo base_url('auth/create_user'); ?>"><button type="button" class="btn btn-lg btn-success" style="margin-right: 10px;">Vytvořit uživatele</button></a>
-                                    <a class="dropdown-item" href="<?php echo base_url('auth/add_school'); ?>"><button type="button" class="btn btn-lg btn-success" style="margin-right: 10px;">Přidat školu</button></a>
+                                    <a class="dropdown-item" href="<?php echo base_url('add_school'); ?>"><button type="button" class="btn btn-lg btn-success" style="margin-right: 10px;">Přidat školu</button></a>
                                 <?php } else { ?>
                                     <a class="dropdown-item" href="<?php echo base_url('auth/login'); ?>"><button type="button" class="btn btn-lg btn-success" style="margin-right: 10px;">Přihlásit se</button></a>
                                 <?php } ?>

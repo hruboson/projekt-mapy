@@ -56,5 +56,8 @@ $route['default_controller'] = 'Home/home';
 // AUTH
 $route['auth'] = 'Auth';
 
+//ADMIN
+$route['add_school'] = 'Home/add_school';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
