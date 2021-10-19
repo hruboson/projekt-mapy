@@ -50,13 +50,11 @@
 			});
 		});
 	</script>
-	<div class="row">
-		<div class="col-8">
-		</div>
-		<div class="col-4 input-group">
-			<input class="form-control" type="text" id="filterInput" placeholder="Vyhledat školu">
-		</div>
-	</div>
+			<script>
+		$(document).ready(function() {
+			$('#tableSkoly').DataTable();
+		});
+	</script>
 	<div class="row">
 		<div class="col-12 p text-center ">
 			<table class="table table-sm" id="tableSkoly">
